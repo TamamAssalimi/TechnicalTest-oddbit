@@ -22,8 +22,10 @@
 > Assignment
 >>1. Write a query to fetch all employees who also hold the managerial position.
 > 
->>`select e.EmpID,e.EmpFname , p.EmpPosition from test.employeeinfo e inner join test.employeeposition p on e.EmpID =p.EmpID
-where p.EmpPosition='Manager' order by e.EmpID ASC;';`
+>>`select ID,Name from (select count(*) as count, e.EmpID as ID,e.EmpFname as Name
+from test.employeeinfo e inner join test.employeeposition p on e.EmpID =p.EmpID
+where (p.EmpPosition='Manager' ||  p.EmpPosition ='Officer') Group by e.EmpID order by e.EmpID ASC)
+empoleyess  where count>1;`
 > 
 ![img.png](img.png)
 > 
