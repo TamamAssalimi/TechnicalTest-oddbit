@@ -22,17 +22,24 @@
 > Assignment
 >>1. Write a query to fetch all employees who also hold the managerial position.
 > 
->>`select e.* from test.employeeinfo e right join test.employeeposition p on e.EmpID =p.EmpID
-where p.EmpPosition='Manager';`
+>>`select e.EmpID,e.EmpFname , p.EmpPosition from test.employeeinfo e inner join test.employeeposition p on e.EmpID =p.EmpID
+where p.EmpPosition='Manager' order by e.EmpID ASC;';`
+> 
+![img.png](img.png)
 > 
 >>2. Create a query to fetch the third-highest salary from the EmpPosition table.
 >
->>`select * from test.employeeposition p order by p.salary desc limit 3;`
+>>`select e.EmpID,e.EmpFname, p.Salary from test.employeeposition p inner join test.employeeinfo e on p.EmpID=e.EmpID
+order by p.salary desc limit 2,1;`
+> 
+![img_1.png](img_1.png)
 > 
 >>3. Write a query to find duplicate EmpID records from a EmployeePosition table.
 > 
->>`select EmpID from (
-select e.EmpID as EmpID, count(*) as count from test.employeeposition e group by e.EmpID
-) employeeposition where count>1;` 
+>>`select e.EmpID,e.EmpFname from (
+select p.EmpID as EmpID, count(*) as count from test.employeeposition p group by p.EmpID
+)employeeposition inner join  test.employeeinfo e on employeeposition.EmpID=e.EmpID where count>1 order by e.EmpID ASC;![img.png](img.png)` 
+> 
+![img_2.png](img_2.png)
 > 
 
