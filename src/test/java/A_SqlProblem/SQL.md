@@ -44,4 +44,14 @@ select p.EmpID as EmpID, count(*) as count from test.employeeposition p group by
 > 
 ![img_2.png](img_2.png)
 > 
-
+> note :
+> sql script given
+> 
+![img_5.png](img_5.png)
+> table employeeInfo data
+> 
+![img_3.png](img_3.png)
+> table employeePosition data
+> 
+![imh_4.png](img_4.png)
+> 
